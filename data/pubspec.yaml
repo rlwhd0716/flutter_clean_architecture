@@ -1,7 +1,6 @@
 name: data
 description: "A new Flutter package project."
-version: 0.0.1
-homepage:
+version: 1.0.0+1
 
 environment:
   sdk: ^3.6.0
@@ -10,11 +9,18 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  chopper: ^8.0.3  # 클라이언트 http 요청 패키지
+  pretty_chopper_logger: ^1.2.1  # dio 로그 패키지
+  json_annotation: ^4.9.0  # 객체 JsonSerializable 패키지 (어노테이션으로 제공)
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
+  build_runner: ^2.4.14
+  chopper_generator: ^8.0.3
+  json_serializable: ^6.9.0 # 객체 JsonSerializable 패키지 (Code Generator)
+  freezed: ^2.5.7  # 객체 비교 패키지 (주로 bloc state에서 사용되어 bloc 빌드 최적화시 상태 비교에 사용)
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
