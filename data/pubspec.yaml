@@ -12,6 +12,7 @@ dependencies:
   chopper: ^8.0.3  # 클라이언트 http 요청 패키지
   pretty_chopper_logger: ^1.2.1  # dio 로그 패키지
   json_annotation: ^4.9.0  # 객체 JsonSerializable 패키지 (어노테이션으로 제공)
+  freezed_annotation: ^2.4.4
 
 dev_dependencies:
   flutter_test:
