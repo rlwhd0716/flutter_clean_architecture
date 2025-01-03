@@ -14,7 +14,7 @@ class RemoteDataSourceImpl implements RemoteDataSource {
 
   /// BaseResponse 를 사용하지 않고 바로 Body로 받아오는 경우 예시
   @override
-  Future<List<Posts>> getPosts() async {
+  Future<List<PostsResponse>> getPosts() async {
     final response = await _apiService.getPosts();
     return response.body ?? [];
   }

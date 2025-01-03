@@ -6,5 +6,5 @@ import '../responses/responses.dart';
  * Created On 2025-01-03
  **/
 abstract class RemoteDataSource {
-  Future<List<Posts>> getPosts();
+  Future<List<PostsResponse>> getPosts();
 }

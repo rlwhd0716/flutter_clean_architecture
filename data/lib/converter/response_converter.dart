@@ -11,14 +11,14 @@ import '../responses/responses.dart';
  * Created On 2025-01-03
  **/
 class ResponseConverter {
-  static FutureOr<Response<List<Posts>>> postsResponse(
+  static FutureOr<Response<List<PostsResponse>>> postsResponse(
     Response<dynamic> response,
   ) async {
-    List<Posts> list = [];
+    List<PostsResponse> list = [];
     final body = response.body;
     final bodyDecode = json.decode(body as String) as List<dynamic>;
     for (var b in bodyDecode) {
-      list.add(Posts.fromJson(b));
+      list.add(PostsResponse.fromJson(b));
     }
 
     return response.copyWith(body: list);

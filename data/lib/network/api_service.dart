@@ -16,5 +16,5 @@ abstract class ApiService extends ChopperService {
 
   @FactoryConverter(response: ResponseConverter.postsResponse)
   @Get(path: '/posts')
-  Future<Response<List<Posts>>> getPosts();
+  Future<Response<List<PostsResponse>>> getPosts();
 }
