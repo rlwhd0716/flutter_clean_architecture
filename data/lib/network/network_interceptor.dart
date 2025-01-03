@@ -2,6 +2,10 @@ import 'dart:async';
 
 import 'package:chopper/chopper.dart';
 
+/**
+ * Chopper Interceptor
+ * Created On 2025-01-03
+ **/
 class NetworkInterceptor implements Interceptor {
   NetworkInterceptor();
 
