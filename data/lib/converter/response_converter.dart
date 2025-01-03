@@ -2,7 +2,8 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:chopper/chopper.dart';
-import 'package:data/model/posts/posts.dart';
+
+import '../responses/responses.dart';
 
 class ResponseConverter {
   static FutureOr<Response<List<Posts>>> postsResponse(

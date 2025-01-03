@@ -1,3 +1,5 @@
+import 'package:chopper/chopper.dart';
+import 'package:data/network/network.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -25,13 +27,13 @@ Future<void> $initGetIt(
   // gh.lazySingleton<AppPreferences>(() => AppPreferences(sharedPreferences));
 
   // Http 요청 처리 등록
-  // var baseApiClient = ApiClient(ApiType.base, enableLogging: true);
+  var baseApiClient = ApiClient(ApiType.base);
 
   // Dio 등록 [ApiClient에서 생성한 apiProvider가 가지고 있는 Dio]
-  // gh.factory<Dio>(() => baseApiClient.apiProvider.getDio);
+  gh.factory<ChopperClient>(() => baseApiClient.apiProvider.getChopper);
 
   // 실제 RestFul API 처리 서비스 등록
-  // gh.factory<ApiService>(() => ApiService(getIt<Dio>()));
+  gh.factory<ApiService>(() => ApiService.create(getIt<ChopperClient>()));
 
   // 샘플 RestFul API 처리 서비스 등록
   // var sampleDataApiClient = ApiClient(ApiType.sampleData, enableLogging: true);

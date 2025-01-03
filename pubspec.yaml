@@ -30,7 +30,12 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  data:
+    path: data/
+  domain:
+    path: domain/
 
+  chopper: ^8.0.3  # 클라이언트 http 요청 패키지
   get_it: ^8.0.3  # DI(의존성 주입) 패키지
   injectable: ^2.5.0  # get_it DI code generator 패키지
   bloc: ^8.1.4  # 상태관리 패키지

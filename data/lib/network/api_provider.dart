@@ -1,0 +1,35 @@
+import 'package:chopper/chopper.dart';
+
+import 'network_interceptor.dart';
+
+enum ApiType { base }
+
+abstract class ApiProviderFactory {
+  ChopperClient get getChopper;
+
+  factory ApiProviderFactory(ApiType type) {
+    switch (type) {
+      case ApiType.base:
+        return ApiProvider();
+    }
+  }
+}
+
+class ApiProvider implements ApiProviderFactory {
+  int apiTimeOut = 60000;
+  static late ChopperClient chopper;
+
+  ApiProvider() {
+    final c = ChopperClient(
+      baseUrl: Uri.parse('https://jsonplaceholder.typicode.com'),
+      interceptors: [
+        NetworkInterceptor(),
+      ],
+      converter: JsonConverter(),
+    );
+    chopper = c;
+  }
+
+  @override
+  ChopperClient get getChopper => chopper;
+}
