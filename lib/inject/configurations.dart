@@ -1,5 +1,7 @@
 import 'package:chopper/chopper.dart';
-import 'package:data/network/network.dart';
+import 'package:data/data.dart';
+import 'package:data/inject/configurations.config.dart' as data_config;
+import 'package:domain/inject/configurations.config.dart' as domain_config;
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -35,14 +37,10 @@ Future<void> $initGetIt(
   // 실제 RestFul API 처리 서비스 등록
   gh.factory<ApiService>(() => ApiService.create(getIt<ChopperClient>()));
 
-  // 샘플 RestFul API 처리 서비스 등록
-  // var sampleDataApiClient = ApiClient(ApiType.sampleData, enableLogging: true);
-  // gh.factory<ApiSampleDataService>(
-  //         () => ApiSampleDataService(sampleDataApiClient.apiProvider.getDio));
-
   //  RestFul API 서비스를 사용하는 원격 데이터 소스
-  // gh.factory<RemoteDataSource>(() =>
-  //     RemoteDataSourceImp(getIt<ApiService>(), getIt<ApiSampleDataService>()));
+  gh.factory<RemoteDataSource>(() => RemoteDataSourceImpl(getIt<ApiService>()));
 
+  data_config.$initGetIt(getIt);
+  domain_config.$initGetIt(getIt);
   config.$initGetIt(getIt);
 }
