@@ -24,7 +24,7 @@ class PostsBloc extends Bloc<PostsEvent, PostsState> {
     emit(state.copyWith(status: PostsStatus.loading));
 
     try {
-      await _postListUseCase.execute('');
+      await _postListUseCase.execute("");
       emit(state.copyWith(status: PostsStatus.success));
     } catch (e) {
       emit(state.copyWith(status: PostsStatus.failure));
