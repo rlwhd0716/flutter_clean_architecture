@@ -5,7 +5,7 @@ import 'package:data/translator/translator.dart';
 import 'package:domain/domain.dart';
 import 'package:injectable/injectable.dart';
 
-@LazySingleton(as: PostsRepository)
+@injectable
 class PostsRepositoryImpl implements PostsRepository {
   final RemoteDataSource _remote;
 

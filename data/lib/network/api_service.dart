@@ -1,5 +1,6 @@
 import 'package:chopper/chopper.dart';
 import 'package:data/converter/response_converter.dart';
+import 'package:injectable/injectable.dart';
 
 import '../data.dart';
 
@@ -10,8 +11,10 @@ part 'api_service.chopper.dart';
  * Create API Service using Client
  * Created On 2025-01-03
  **/
+@singleton
 @ChopperApi()
 abstract class ApiService extends ChopperService {
+  @factoryMethod
   static ApiService create(final ChopperClient client) => _$ApiService(client);
 
   @FactoryConverter(response: ResponseConverter.postsResponse)

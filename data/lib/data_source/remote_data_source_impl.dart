@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:injectable/injectable.dart';
+
 import '../data.dart';
 
 /**
@@ -7,6 +9,7 @@ import '../data.dart';
  * Remote Data Source Implements
  * Created On 2025-01-03
  **/
+@injectable
 class RemoteDataSourceImpl implements RemoteDataSource {
   final ApiService _apiService;
 
