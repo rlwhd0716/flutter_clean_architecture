@@ -1,12 +1,11 @@
 import 'package:chopper/chopper.dart';
 import 'package:data/data.dart';
-import 'package:data/inject/configurations.config.dart' as data_config;
-import 'package:domain/inject/configurations.config.dart' as domain_config;
+import 'package:data/di/micro_package.module.dart';
+import 'package:domain/di/micro_package.module.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-import 'configurations.config.dart' as config;
+import 'injector.config.dart' as config;
 
 final getIt = GetIt.instance;
 
@@ -14,8 +13,13 @@ final getIt = GetIt.instance;
   initializerName: r'$initGetIt',
   preferRelativeImports: true,
   asExtension: false,
+  includeMicroPackages: true,
+  externalPackageModulesBefore: [
+    ExternalModule(DataPackageModule),
+    ExternalModule(DomainPackageModule),
+  ],
 )
-Future<void> configureDependencies() => $initGetIt(getIt);
+Future<void> injectDependencies() => $initGetIt(getIt);
 
 Future<void> $initGetIt(
   GetIt getIt, {
@@ -23,7 +27,7 @@ Future<void> $initGetIt(
   EnvironmentFilter? environmentFilter,
 }) async {
   final gh = GetItHelper(getIt, environment.toString());
-  final sharedPreferences = await SharedPreferences.getInstance();
+  // final sharedPreferences = await SharedPreferences.getInstance();
 
   // IoC 등록
   // gh.lazySingleton<AppPreferences>(() => AppPreferences(sharedPreferences));
@@ -40,7 +44,5 @@ Future<void> $initGetIt(
   //  RestFul API 서비스를 사용하는 원격 데이터 소스
   gh.factory<RemoteDataSource>(() => RemoteDataSourceImpl(getIt<ApiService>()));
 
-  data_config.$initGetIt(getIt);
-  domain_config.$initGetIt(getIt);
   config.$initGetIt(getIt);
 }

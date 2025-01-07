@@ -25,4 +25,30 @@ class App extends StatelessWidget {
         locale: Language.ko.locale,
         routerConfig: RouteGenerator.getRoute(),
       );
+
+  // @override
+  // Widget build(BuildContext context) => MultiBlocProvider(
+  //       providers: [
+  //         BlocProvider<PostsBloc>(
+  //             create: (BuildContext context) => getIt<PostsBloc>())
+  //       ],
+  //       child: MaterialApp.router(
+  //         title: 'Flutter Clean Architecture',
+  //         debugShowCheckedModeBanner: false,
+  //         theme: ThemeData(
+  //           primarySwatch: Colors.blue,
+  //           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+  //           useMaterial3: true,
+  //         ),
+  //         localizationsDelegates: const [
+  //           // AppLocalizations.delegate,
+  //           GlobalMaterialLocalizations.delegate,
+  //           GlobalWidgetsLocalizations.delegate,
+  //           GlobalCupertinoLocalizations.delegate,
+  //         ],
+  //         supportedLocales: Language.values.map((e) => e.locale).toList(),
+  //         locale: Language.ko.locale,
+  //         routerConfig: RouteGenerator.getRoute(),
+  //       ),
+  //     );
 }
