@@ -8,6 +8,7 @@ import '../responses/responses.dart';
 /**
  * Restful API
  * Json To Model Converter
+ * Chopper에서 모델을 사용하기 위해서는 컨버터가 필요함
  * Created On 2025-01-03
  **/
 class ResponseConverter {
