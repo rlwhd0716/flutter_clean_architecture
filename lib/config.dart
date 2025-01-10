@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 /// l10n\arb에서 문자열 지역화 를 정의.
 /// Define string localization in l10n\arb.
+/// Created on 2025-01-06
 
 enum Language { en, ko }
 

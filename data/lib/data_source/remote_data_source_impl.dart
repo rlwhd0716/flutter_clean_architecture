@@ -4,11 +4,9 @@ import 'package:injectable/injectable.dart';
 
 import '../data.dart';
 
-/**
- * Restful API
- * Remote Data Source Implements
- * Created On 2025-01-03
- **/
+/// Restful API
+/// Remote Data Source Implements
+/// Created On 2025-01-03
 @injectable
 class RemoteDataSourceImpl implements RemoteDataSource {
   final ApiService _apiService;
