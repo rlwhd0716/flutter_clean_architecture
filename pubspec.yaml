@@ -31,9 +31,9 @@ dependencies:
   flutter:
     sdk: flutter
   data:
-    path: data/
+    path: packages/data
   domain:
-    path: domain/
+    path: packages/domain
 
   chopper: ^8.0.3  # 클라이언트 http 요청 패키지
   get_it: ^8.0.3  # DI(의존성 주입) 패키지

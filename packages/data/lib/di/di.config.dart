@@ -32,10 +32,10 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factoryAsync<_i31.ChopperClient>(() => registerModule.chopper);
     gh.singletonAsync<_i1038.ApiService>(() async =>
         _i1038.ApiService.create(await getAsync<_i31.ChopperClient>()));
-    gh.lazySingletonAsync<_i437.RemoteDataSource>(() async =>
+    gh.factoryAsync<_i332.RemoteDataSourceImpl>(() async =>
         _i332.RemoteDataSourceImpl(await getAsync<_i437.ApiService>()));
-    gh.factoryAsync<_i384.PostsRepositoryImpl>(() async =>
-        _i384.PostsRepositoryImpl(await getAsync<_i437.RemoteDataSource>()));
+    gh.factory<_i384.PostsRepositoryImpl>(
+        () => _i384.PostsRepositoryImpl(gh<_i437.RemoteDataSource>()));
     return this;
   }
 }

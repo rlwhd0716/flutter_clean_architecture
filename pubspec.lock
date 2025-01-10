@@ -209,14 +209,14 @@ packages:
   data:
     dependency: "direct main"
     description:
-      path: data
+      path: "packages/data"
       relative: true
     source: path
     version: "1.0.0+1"
   domain:
     dependency: "direct main"
     description:
-      path: domain
+      path: "packages/domain"
       relative: true
     source: path
     version: "1.0.0+1"
