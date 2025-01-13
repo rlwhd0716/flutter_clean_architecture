@@ -4,7 +4,7 @@ import 'package:get_it/get_it.dart';
 
 import 'di.dart' as presentation;
 
-final getIt = GetIt.instance;
+var getIt = GetIt.instance;
 
 // @InjectableInit(
 //   initializerName: r'$initGetIt',
@@ -44,7 +44,8 @@ final getIt = GetIt.instance;
 // }
 
 void injectAllDependencies() {
-  data.injectDependencies(getIt: getIt);
-  domain.injectDependencies(getIt: getIt);
-  presentation.injectDependencies(getIt: getIt);
+  data.injectDependencies(getIt: getIt).then((getIt) => {
+        domain.injectDependencies(getIt: getIt),
+        presentation.injectDependencies(getIt: getIt)
+      });
 }
