@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:domain/domain.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:equatable/equatable.dart';
 import 'package:injectable/injectable.dart';
 
-part 'posts_bloc.freezed.dart';
+// part 'posts_bloc.freezed.dart';
 part 'posts_event.dart';
 part 'posts_state.dart';
 
@@ -16,26 +16,44 @@ part 'posts_state.dart';
 class PostsBloc extends Bloc<PostsEvent, PostsState> {
   final PostListUseCase _postListUseCase;
 
-  /// 생성자를 초기화하여
-  PostsBloc(
-    this._postListUseCase,
-  ) : super(const PostsState()) {
-    on<PostsEvent>((event, emit) {
-      event.mapOrNull(getList: (event) => _getList(event, emit));
-    });
+  PostsBloc(this._postListUseCase) : super(const LoadingState()) {
+    on<PostsGetListEvent>(_getList);
   }
 
-  void _getList(
-    _PostsGetList event,
+  Future<void> _getList(
+    PostsGetListEvent event,
     Emitter<PostsState> emit,
   ) async {
-    emit(state.copyWith(status: PostsStatus.loading));
+    emit(const LoadingState());
 
-    try {
-      await _postListUseCase.execute(null);
-      emit(state.copyWith(status: PostsStatus.success));
-    } catch (e) {
-      emit(state.copyWith(status: PostsStatus.failure));
-    }
+    var uc = await _postListUseCase.execute(null);
+    uc.fold(
+      (error) => emit(const FailureState()),
+      (result) => emit(SuccessState(result)),
+    );
   }
 }
+
+/// 생성자를 초기화하여
+//   PostsBloc(
+//     this._postListUseCase,
+//   ) : super(const PostsState()) {
+//     on<PostsEvent>((event, emit) {
+//       event.mapOrNull(getList: (event) async => await _getList(event, emit));
+//     });
+//   }
+//
+//   Future<void> _getList(
+//     _PostsGetList event,
+//     Emitter<PostsState> emit,
+//   ) async {
+//     emit(PostsState(status: PostsStatus.loading));
+//
+//     final uc = await _postListUseCase.execute(null);
+//     uc.fold(
+//       (error) => emit(state.copyWith(status: PostsStatus.failure)),
+//       (result) =>
+//           emit(state.copyWith(status: PostsStatus.success, posts: result)),
+//     );
+//   }
+// }

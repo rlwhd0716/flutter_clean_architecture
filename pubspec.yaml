@@ -49,6 +49,7 @@ dependencies:
 #  flutter_speed_dial: ^6.2.0  # 햄버거 버튼 터치시 서브 메뉴 표시 처리 패키지
 #  bottom_sheet: ^4.0.0  # 하단에 위젯 표시 처리 패키지
 #  shimmer: ^3.0.0  # 로딩 효과 패키지
+  equatable: ^2.0.7
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

@@ -4,7 +4,14 @@ part of 'posts_bloc.dart';
 /// 작성시에는 Bloc의 part 클래스로 작성하여 dart 파일을 분리하여 사용
 /// 각 Bloc에서 사용하는 이벤트를 정의
 /// Created on 2025-01-06
-@freezed
-class PostsEvent with _$PostsEvent {
-  const factory PostsEvent.getList() = _PostsGetList;
+// @freezed
+// class PostsEvent with _$PostsEvent {
+//   const factory PostsEvent.getList() = _PostsGetList;
+// }
+
+abstract class PostsEvent extends Equatable {
+  @override
+  List<Object?> get props => [];
 }
+
+final class PostsGetListEvent extends PostsEvent {}

@@ -14,7 +14,7 @@ class _PostsViewState extends State<PostsView> {
   void initState() {
     super.initState();
 
-    context.read<PostsBloc>().add(PostsEvent.getList());
+    context.read<PostsBloc>().add(PostsGetListEvent());
   }
 
   @override
@@ -29,13 +29,14 @@ class _PostsViewState extends State<PostsView> {
                 child: CircularProgressIndicator(
                     color: Color.fromARGB(255, 252, 113, 49)));
           case PostsStatus.success:
-            return Container();
+            return const Text('loading data Success!',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold));
           case PostsStatus.failure:
             return const Text('Error loading data',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold));
-          default:
-            return const Text('No data.',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold));
+          // default:
+          //   return const Text('No data.',
+          //       style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold));
         }
       },
     );
