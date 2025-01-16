@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/routes_manager.dart';
+import 'package:flutter_clean_architecture/config/config.dart';
 import 'package:go_router/go_router.dart';
 
 /// Intro 화면

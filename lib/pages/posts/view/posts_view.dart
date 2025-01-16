@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_clean_architecture/posts/bloc/posts_bloc.dart';
+import 'package:flutter_clean_architecture/pages/posts/bloc/posts_bloc.dart';
 
 class PostsView extends StatefulWidget {
   const PostsView({super.key});

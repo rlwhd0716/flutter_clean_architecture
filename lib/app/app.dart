@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_clean_architecture/config.dart';
-import 'package:flutter_clean_architecture/routes_manager.dart';
+import 'package:flutter_clean_architecture/config/config.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 /// main 이 실행되면 표출되는 App Screen

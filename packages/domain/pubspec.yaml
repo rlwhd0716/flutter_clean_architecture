@@ -9,18 +9,18 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  dartz: ^0.10.1  # Either<Left, Right> 타입 제공 패키지 (주로 UseCase에서 Input에 대한 Ouput를 성공(Right) 또는 실패(Left)로 반환 받아 사용 된다.)
-  json_annotation: ^4.9.0  # 객체 JsonSerializable 패키지 (어노테이션으로 제공)
-  get_it: ^8.0.3  # DI(의존성 주입) 패키지
-  injectable: ^2.5.0  # get_it DI code generator 패키지
+  dartz: ^0.10.1                      # Either<Left, Right> 타입 제공 패키지 (주로 UseCase에서 Input에 대한 Ouput를 성공(Right) 또는 실패(Left)로 반환 받아 사용 된다.)
+  json_annotation: ^4.9.0             # 객체 JsonSerializable 패키지 (어노테이션으로 제공)
+  get_it: ^8.0.3                      # DI(의존성 주입) 패키지
+  injectable: ^2.5.0                  # get_it DI code generator 패키지
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
-  build_runner: ^2.4.14
-  json_serializable: ^6.9.0 # 객체 JsonSerializable 패키지 (Code Generator)
-  injectable_generator: ^2.6.2
+  build_runner: ^2.4.14               # generator를 사용하기 위한 Builder
+  json_serializable: ^6.9.0           # 객체 JsonSerializable 패키지 (Code Generator)
+  injectable_generator: ^2.6.2        # 의존성 주입 코드 생성기
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
