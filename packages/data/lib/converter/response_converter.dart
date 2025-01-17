@@ -2,8 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:chopper/chopper.dart';
-
-import '../responses/responses.dart';
+import 'package:data/data.dart';
 
 /// Restful API
 /// Json To Model Converter

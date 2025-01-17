@@ -1,7 +1,6 @@
 import 'package:chopper/chopper.dart';
 import 'package:data/converter/response_converter.dart';
-
-import '../../data.dart';
+import 'package:data/data.dart';
 
 part 'api_service.chopper.dart';
 

@@ -1,6 +1,5 @@
 import 'package:chopper/chopper.dart';
-
-import '../network_interceptor.dart';
+import 'package:data/network/network_interceptor.dart';
 
 enum ApiType { base }
 
