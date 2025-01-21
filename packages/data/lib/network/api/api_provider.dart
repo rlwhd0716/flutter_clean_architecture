@@ -30,6 +30,9 @@ class ApiProvider implements ApiProviderFactory {
       interceptors: [
         NetworkInterceptor(),
       ],
+      // client: http.IOClient(
+      //   HttpClient()..connectionTimeout = Duration(milliseconds: 50),
+      // ),
       converter: JsonConverter(),
     );
     chopper = c;

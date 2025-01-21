@@ -27,6 +27,7 @@ dev_dependencies:
   json_serializable: ^6.9.0            # 객체 JsonSerializable 패키지 (Code Generator)
   freezed: ^2.5.7                      # 객체 비교 패키지 (주로 bloc state에서 사용되어 bloc 빌드 최적화시 상태 비교에 사용)
   injectable_generator: ^2.6.2         # 의존성 주입 코드 생성기
+  http: ^1.2.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
