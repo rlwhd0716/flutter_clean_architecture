@@ -70,3 +70,5 @@ void _runCommand(String path, List<String> args) async {
     print("[$path] 명령어 실행 중 오류 발생: $exitCode");
   }
 }
+
+// dart lib/build_runner_execute.dart

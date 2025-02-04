@@ -26,7 +26,8 @@ class ApiProvider implements ApiProviderFactory {
 
   ApiProvider() {
     final c = ChopperClient(
-      baseUrl: Uri.parse('https://jsonplaceholder.typicode.com'),
+      baseUrl: Uri.parse('http://192.168.15.66:19020'),
+      // baseUrl: Uri.parse('https://jsonplaceholder.typicode.com'),
       interceptors: [
         NetworkInterceptor(),
       ],
