@@ -14,7 +14,8 @@ class _PostsViewState extends State<PostsView> {
   void initState() {
     super.initState();
 
-    context.read<PostsBloc>().add(PostsGetListEvent());
+    //context.read<PostsBloc>().add(GetPostListEvent());
+    context.read<PostsBloc>().add(GetSidoListEvent());
   }
 
   @override

@@ -15,13 +15,15 @@ part 'posts_state.dart';
 @injectable
 class PostsBloc extends Bloc<PostsEvent, PostsState> {
   final PostListUseCase _postListUseCase;
+  final SidoListUseCase _sidoListUseCase;
 
-  PostsBloc(this._postListUseCase) : super(const LoadingState()) {
-    on<PostsGetListEvent>(_getList);
+  PostsBloc(this._postListUseCase, this._sidoListUseCase) : super(const LoadingState()) {
+    on<GetPostListEvent>(_getPostList);
+    on<GetSidoListEvent>(_getSidoList);
   }
 
-  Future<void> _getList(
-    PostsGetListEvent event,
+  Future<void> _getPostList(
+    GetPostListEvent event,
     Emitter<PostsState> emit,
   ) async {
     emit(const LoadingState());
@@ -29,7 +31,20 @@ class PostsBloc extends Bloc<PostsEvent, PostsState> {
     var uc = await _postListUseCase.execute(null);
     uc.fold(
       (error) => emit(const FailureState()),
-      (result) => emit(SuccessState(result)),
+      (result) => emit(GetPostListState(result)),
+    );
+  }
+
+  Future<void> _getSidoList(
+      GetSidoListEvent event,
+      Emitter<PostsState> emit,
+  ) async {
+    emit(const LoadingState());
+
+    var uc = await _sidoListUseCase.execute(null);
+    uc.fold(
+          (error) => emit(const FailureState()),
+          (result) => emit(GetSidoListState(result)),
     );
   }
 }

@@ -25,8 +25,10 @@ extension GetItInjectableX on _i174.GetIt {
       environment,
       environmentFilter,
     );
-    gh.factory<_i1009.PostsBloc>(
-        () => _i1009.PostsBloc(gh<_i494.PostListUseCase>()));
+    gh.factory<_i1009.PostsBloc>(() => _i1009.PostsBloc(
+          gh<_i494.PostListUseCase>(),
+          gh<_i494.SidoListUseCase>(),
+        ));
     return this;
   }
 }

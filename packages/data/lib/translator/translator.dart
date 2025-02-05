@@ -9,3 +9,10 @@ extension PostsResponseTranslator on PostsResponse {
     return PostModel(userId, id, title, body);
   }
 }
+
+
+extension CodeResponseTranslator on SidoResponse {
+  CodeModel toDomain() {
+    return CodeModel(code,codeDescriptor,codeName,upperCode,);
+  }
+}

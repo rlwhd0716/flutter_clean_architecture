@@ -46,8 +46,9 @@ extension PostsStatusX on PostsStatus {
 abstract class PostsState extends Equatable {
   final PostsStatus status;
   final List<PostModel>? posts;
+  final List<CodeModel>? codes;
 
-  const PostsState(this.status, {this.posts});
+  const PostsState(this.status, {this.posts, this.codes});
 
   @override
   List<Object?> get props => [status, posts];
@@ -57,9 +58,14 @@ class LoadingState extends PostsState {
   const LoadingState() : super(PostsStatus.loading);
 }
 
-class SuccessState extends PostsState {
+class GetPostListState extends PostsState {
   final List<PostModel> _posts;
-  const SuccessState(this._posts) : super(PostsStatus.success, posts: _posts);
+  const GetPostListState(this._posts) : super(PostsStatus.success, posts: _posts);
+}
+
+class GetSidoListState extends PostsState {
+  final List<CodeModel> _codes;
+  const GetSidoListState(this._codes) : super(PostsStatus.success, codes: _codes);
 }
 
 class FailureState extends PostsState {

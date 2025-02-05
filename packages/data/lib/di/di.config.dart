@@ -14,6 +14,7 @@ import 'package:injectable/injectable.dart' as _i526;
 
 import '../data.dart' as _i633;
 import '../data_source/remote_data_source_impl.dart' as _i426;
+import '../repository_impl/code_repository_impl.dart' as _i374;
 import '../repository_impl/posts_repository_impl.dart' as _i35;
 
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -31,5 +32,7 @@ _i174.GetIt $initGetIt(
       () => _i426.RemoteDataSourceImpl(gh<_i633.ApiService>()));
   gh.factory<_i494.PostsRepository>(
       () => _i35.PostsRepositoryImpl(gh<_i633.RemoteDataSource>()));
+  gh.factory<_i494.CodeRepository>(
+      () => _i374.CodeRepositoryImpl(gh<_i633.RemoteDataSource>()));
   return getIt;
 }
