@@ -10,7 +10,7 @@ class BaseResponse<T> with _$BaseResponse<T> {
     required String resultMsg,
     required int resultSize,
     required int totalSize,
-    required List<T>? resultData,
+    required T? resultData,
   }) = _BaseResponse;
 
   factory BaseResponse.fromJson(

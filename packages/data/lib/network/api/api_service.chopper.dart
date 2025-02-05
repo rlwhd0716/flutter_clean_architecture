@@ -18,6 +18,20 @@ final class _$ApiService extends ApiService {
   final Type definitionType = ApiService;
 
   @override
+  Future<Response<dynamic>> getCodeSido() {
+    final Uri $url = Uri.parse('/code/sido');
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+    );
+    return client.send<dynamic, dynamic>(
+      $request,
+      responseConverter: ResponseConverter.baseResponse,
+    );
+  }
+
+  @override
   Future<Response<List<PostsResponse>>> getPosts() {
     final Uri $url = Uri.parse('/posts');
     final Request $request = Request(

@@ -21,6 +21,12 @@ class RemoteDataSourceImpl implements RemoteDataSource {
     return response.body ?? [];
   }
 
+  @override
+  Future<BaseResponse<List<SidoResponse>>> getCodeSido() async {
+    final response = await _apiService.getCodeSido();
+    return response.body as BaseResponse<List<SidoResponse>>;
+  }
+
   /// BaseResponse 를 사용하는 경우 예시
   /// 하위 모델 또한 컨버팅이 필요하기 때문에, 여기에서 fromJson을 실행함.
   /* Future<List<UserData>> getUser(String id) async {

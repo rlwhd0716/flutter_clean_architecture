@@ -15,8 +15,7 @@ _$BaseResponseImpl<T> _$$BaseResponseImplFromJson<T>(
       resultMsg: json['resultMsg'] as String,
       resultSize: (json['resultSize'] as num).toInt(),
       totalSize: (json['totalSize'] as num).toInt(),
-      resultData:
-          (json['resultData'] as List<dynamic>?)?.map(fromJsonT).toList(),
+      resultData: _$nullableGenericFromJson(json['resultData'], fromJsonT),
     );
 
 Map<String, dynamic> _$$BaseResponseImplToJson<T>(
@@ -28,5 +27,17 @@ Map<String, dynamic> _$$BaseResponseImplToJson<T>(
       'resultMsg': instance.resultMsg,
       'resultSize': instance.resultSize,
       'totalSize': instance.totalSize,
-      'resultData': instance.resultData?.map(toJsonT).toList(),
+      'resultData': _$nullableGenericToJson(instance.resultData, toJsonT),
     };
+
+T? _$nullableGenericFromJson<T>(
+  Object? input,
+  T Function(Object? json) fromJson,
+) =>
+    input == null ? null : fromJson(input);
+
+Object? _$nullableGenericToJson<T>(
+  T? input,
+  Object? Function(T value) toJson,
+) =>
+    input == null ? null : toJson(input);
