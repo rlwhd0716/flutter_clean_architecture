@@ -13,10 +13,9 @@ part 'api_service.chopper.dart';
 abstract class ApiService extends ChopperService {
   static ApiService create(final ChopperClient client) => _$ApiService(client);
 
-  @FactoryConverter(
-      response: ResponseConverter.baseResponse<List<SidoResponse>>)
-  @Post(path: '/code/sido')
-  Future<Response<dynamic>> getCodeSido();
+  @FactoryConverter(response: ResponseConverter.baseResponse)
+  @Post(path: '/ELSM_MS/code/sido')
+  Future<Response<BaseResponse>> getCodeSido();
 
   @FactoryConverter(response: ResponseConverter.postsResponse)
   @Get(path: '/posts')

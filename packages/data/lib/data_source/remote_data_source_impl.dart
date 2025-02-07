@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:data/network/base/api_result.dart';
 import 'package:injectable/injectable.dart';
 
 import '../data.dart';
@@ -22,9 +23,18 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   }
 
   @override
-  Future<BaseResponse<List<SidoResponse>>> getCodeSido() async {
+  Future<ApiResult<List<CodeResponse>>> getCodeSido() async {
+    // List<CodeResponse> list = [];
     final response = await _apiService.getCodeSido();
-    return response.body as BaseResponse<List<SidoResponse>>;
+    // if (response.body != null) {
+    //   for (var result in response.body!.resultData!) {
+    //     var code = CodeResponse.fromJson(result);
+    //     list.add(code);
+    //   }
+    // }
+
+    return ApiResult.fromResponseList(response, CodeResponse.fromJson);
+    // return response.body!.copyWith(resultData: list);
   }
 
   /// BaseResponse 를 사용하는 경우 예시

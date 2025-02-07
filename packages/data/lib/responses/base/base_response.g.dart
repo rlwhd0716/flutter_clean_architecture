@@ -6,38 +6,20 @@ part of 'base_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$BaseResponseImpl<T> _$$BaseResponseImplFromJson<T>(
-  Map<String, dynamic> json,
-  T Function(Object? json) fromJsonT,
-) =>
-    _$BaseResponseImpl<T>(
+_$BaseResponseImpl _$$BaseResponseImplFromJson(Map<String, dynamic> json) =>
+    _$BaseResponseImpl(
       resultCode: json['resultCode'] as String,
       resultMsg: json['resultMsg'] as String,
       resultSize: (json['resultSize'] as num).toInt(),
       totalSize: (json['totalSize'] as num).toInt(),
-      resultData: _$nullableGenericFromJson(json['resultData'], fromJsonT),
+      resultData: json['resultData'] as List<dynamic>?,
     );
 
-Map<String, dynamic> _$$BaseResponseImplToJson<T>(
-  _$BaseResponseImpl<T> instance,
-  Object? Function(T value) toJsonT,
-) =>
+Map<String, dynamic> _$$BaseResponseImplToJson(_$BaseResponseImpl instance) =>
     <String, dynamic>{
       'resultCode': instance.resultCode,
       'resultMsg': instance.resultMsg,
       'resultSize': instance.resultSize,
       'totalSize': instance.totalSize,
-      'resultData': _$nullableGenericToJson(instance.resultData, toJsonT),
+      'resultData': instance.resultData,
     };
-
-T? _$nullableGenericFromJson<T>(
-  Object? input,
-  T Function(Object? json) fromJson,
-) =>
-    input == null ? null : fromJson(input);
-
-Object? _$nullableGenericToJson<T>(
-  T? input,
-  Object? Function(T value) toJson,
-) =>
-    input == null ? null : toJson(input);

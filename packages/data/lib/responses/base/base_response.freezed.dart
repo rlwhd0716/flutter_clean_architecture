@@ -14,47 +14,45 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-BaseResponse<T> _$BaseResponseFromJson<T>(
-    Map<String, dynamic> json, T Function(Object?) fromJsonT) {
-  return _BaseResponse<T>.fromJson(json, fromJsonT);
+BaseResponse _$BaseResponseFromJson(Map<String, dynamic> json) {
+  return _BaseResponse.fromJson(json);
 }
 
 /// @nodoc
-mixin _$BaseResponse<T> {
+mixin _$BaseResponse {
   String get resultCode => throw _privateConstructorUsedError;
   String get resultMsg => throw _privateConstructorUsedError;
   int get resultSize => throw _privateConstructorUsedError;
   int get totalSize => throw _privateConstructorUsedError;
-  T? get resultData => throw _privateConstructorUsedError;
+  List<dynamic>? get resultData => throw _privateConstructorUsedError;
 
   /// Serializes this BaseResponse to a JSON map.
-  Map<String, dynamic> toJson(Object? Function(T) toJsonT) =>
-      throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
   /// Create a copy of BaseResponse
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $BaseResponseCopyWith<T, BaseResponse<T>> get copyWith =>
+  $BaseResponseCopyWith<BaseResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $BaseResponseCopyWith<T, $Res> {
+abstract class $BaseResponseCopyWith<$Res> {
   factory $BaseResponseCopyWith(
-          BaseResponse<T> value, $Res Function(BaseResponse<T>) then) =
-      _$BaseResponseCopyWithImpl<T, $Res, BaseResponse<T>>;
+          BaseResponse value, $Res Function(BaseResponse) then) =
+      _$BaseResponseCopyWithImpl<$Res, BaseResponse>;
   @useResult
   $Res call(
       {String resultCode,
       String resultMsg,
       int resultSize,
       int totalSize,
-      T? resultData});
+      List<dynamic>? resultData});
 }
 
 /// @nodoc
-class _$BaseResponseCopyWithImpl<T, $Res, $Val extends BaseResponse<T>>
-    implements $BaseResponseCopyWith<T, $Res> {
+class _$BaseResponseCopyWithImpl<$Res, $Val extends BaseResponse>
+    implements $BaseResponseCopyWith<$Res> {
   _$BaseResponseCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -93,17 +91,17 @@ class _$BaseResponseCopyWithImpl<T, $Res, $Val extends BaseResponse<T>>
       resultData: freezed == resultData
           ? _value.resultData
           : resultData // ignore: cast_nullable_to_non_nullable
-              as T?,
+              as List<dynamic>?,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$BaseResponseImplCopyWith<T, $Res>
-    implements $BaseResponseCopyWith<T, $Res> {
-  factory _$$BaseResponseImplCopyWith(_$BaseResponseImpl<T> value,
-          $Res Function(_$BaseResponseImpl<T>) then) =
-      __$$BaseResponseImplCopyWithImpl<T, $Res>;
+abstract class _$$BaseResponseImplCopyWith<$Res>
+    implements $BaseResponseCopyWith<$Res> {
+  factory _$$BaseResponseImplCopyWith(
+          _$BaseResponseImpl value, $Res Function(_$BaseResponseImpl) then) =
+      __$$BaseResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -111,15 +109,15 @@ abstract class _$$BaseResponseImplCopyWith<T, $Res>
       String resultMsg,
       int resultSize,
       int totalSize,
-      T? resultData});
+      List<dynamic>? resultData});
 }
 
 /// @nodoc
-class __$$BaseResponseImplCopyWithImpl<T, $Res>
-    extends _$BaseResponseCopyWithImpl<T, $Res, _$BaseResponseImpl<T>>
-    implements _$$BaseResponseImplCopyWith<T, $Res> {
+class __$$BaseResponseImplCopyWithImpl<$Res>
+    extends _$BaseResponseCopyWithImpl<$Res, _$BaseResponseImpl>
+    implements _$$BaseResponseImplCopyWith<$Res> {
   __$$BaseResponseImplCopyWithImpl(
-      _$BaseResponseImpl<T> _value, $Res Function(_$BaseResponseImpl<T>) _then)
+      _$BaseResponseImpl _value, $Res Function(_$BaseResponseImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of BaseResponse
@@ -133,7 +131,7 @@ class __$$BaseResponseImplCopyWithImpl<T, $Res>
     Object? totalSize = null,
     Object? resultData = freezed,
   }) {
-    return _then(_$BaseResponseImpl<T>(
+    return _then(_$BaseResponseImpl(
       resultCode: null == resultCode
           ? _value.resultCode
           : resultCode // ignore: cast_nullable_to_non_nullable
@@ -151,26 +149,26 @@ class __$$BaseResponseImplCopyWithImpl<T, $Res>
           : totalSize // ignore: cast_nullable_to_non_nullable
               as int,
       resultData: freezed == resultData
-          ? _value.resultData
+          ? _value._resultData
           : resultData // ignore: cast_nullable_to_non_nullable
-              as T?,
+              as List<dynamic>?,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable(genericArgumentFactories: true)
-class _$BaseResponseImpl<T> implements _BaseResponse<T> {
+@JsonSerializable()
+class _$BaseResponseImpl implements _BaseResponse {
   _$BaseResponseImpl(
       {required this.resultCode,
       required this.resultMsg,
       required this.resultSize,
       required this.totalSize,
-      required this.resultData});
+      required final List<dynamic>? resultData})
+      : _resultData = resultData;
 
-  factory _$BaseResponseImpl.fromJson(
-          Map<String, dynamic> json, T Function(Object?) fromJsonT) =>
-      _$$BaseResponseImplFromJson(json, fromJsonT);
+  factory _$BaseResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BaseResponseImplFromJson(json);
 
   @override
   final String resultCode;
@@ -180,19 +178,26 @@ class _$BaseResponseImpl<T> implements _BaseResponse<T> {
   final int resultSize;
   @override
   final int totalSize;
+  final List<dynamic>? _resultData;
   @override
-  final T? resultData;
+  List<dynamic>? get resultData {
+    final value = _resultData;
+    if (value == null) return null;
+    if (_resultData is EqualUnmodifiableListView) return _resultData;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'BaseResponse<$T>(resultCode: $resultCode, resultMsg: $resultMsg, resultSize: $resultSize, totalSize: $totalSize, resultData: $resultData)';
+    return 'BaseResponse(resultCode: $resultCode, resultMsg: $resultMsg, resultSize: $resultSize, totalSize: $totalSize, resultData: $resultData)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$BaseResponseImpl<T> &&
+            other is _$BaseResponseImpl &&
             (identical(other.resultCode, resultCode) ||
                 other.resultCode == resultCode) &&
             (identical(other.resultMsg, resultMsg) ||
@@ -202,40 +207,40 @@ class _$BaseResponseImpl<T> implements _BaseResponse<T> {
             (identical(other.totalSize, totalSize) ||
                 other.totalSize == totalSize) &&
             const DeepCollectionEquality()
-                .equals(other.resultData, resultData));
+                .equals(other._resultData, _resultData));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, resultCode, resultMsg,
-      resultSize, totalSize, const DeepCollectionEquality().hash(resultData));
+      resultSize, totalSize, const DeepCollectionEquality().hash(_resultData));
 
   /// Create a copy of BaseResponse
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$BaseResponseImplCopyWith<T, _$BaseResponseImpl<T>> get copyWith =>
-      __$$BaseResponseImplCopyWithImpl<T, _$BaseResponseImpl<T>>(
-          this, _$identity);
+  _$$BaseResponseImplCopyWith<_$BaseResponseImpl> get copyWith =>
+      __$$BaseResponseImplCopyWithImpl<_$BaseResponseImpl>(this, _$identity);
 
   @override
-  Map<String, dynamic> toJson(Object? Function(T) toJsonT) {
-    return _$$BaseResponseImplToJson<T>(this, toJsonT);
+  Map<String, dynamic> toJson() {
+    return _$$BaseResponseImplToJson(
+      this,
+    );
   }
 }
 
-abstract class _BaseResponse<T> implements BaseResponse<T> {
+abstract class _BaseResponse implements BaseResponse {
   factory _BaseResponse(
       {required final String resultCode,
       required final String resultMsg,
       required final int resultSize,
       required final int totalSize,
-      required final T? resultData}) = _$BaseResponseImpl<T>;
+      required final List<dynamic>? resultData}) = _$BaseResponseImpl;
 
-  factory _BaseResponse.fromJson(
-          Map<String, dynamic> json, T Function(Object?) fromJsonT) =
-      _$BaseResponseImpl<T>.fromJson;
+  factory _BaseResponse.fromJson(Map<String, dynamic> json) =
+      _$BaseResponseImpl.fromJson;
 
   @override
   String get resultCode;
@@ -246,12 +251,12 @@ abstract class _BaseResponse<T> implements BaseResponse<T> {
   @override
   int get totalSize;
   @override
-  T? get resultData;
+  List<dynamic>? get resultData;
 
   /// Create a copy of BaseResponse
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$BaseResponseImplCopyWith<T, _$BaseResponseImpl<T>> get copyWith =>
+  _$$BaseResponseImplCopyWith<_$BaseResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

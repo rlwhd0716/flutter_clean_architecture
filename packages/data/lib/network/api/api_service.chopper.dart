@@ -18,14 +18,14 @@ final class _$ApiService extends ApiService {
   final Type definitionType = ApiService;
 
   @override
-  Future<Response<dynamic>> getCodeSido() {
-    final Uri $url = Uri.parse('/code/sido');
+  Future<Response<BaseResponse>> getCodeSido() {
+    final Uri $url = Uri.parse('/ELSM_MS/code/sido');
     final Request $request = Request(
       'POST',
       $url,
       client.baseUrl,
     );
-    return client.send<dynamic, dynamic>(
+    return client.send<BaseResponse, BaseResponse>(
       $request,
       responseConverter: ResponseConverter.baseResponse,
     );

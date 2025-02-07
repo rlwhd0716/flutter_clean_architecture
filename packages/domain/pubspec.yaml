@@ -9,6 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  util:
+    path: ../util                     # 유틸리티 모듈 의존성 주입
   dartz: ^0.10.1                      # Either<Left, Right> 타입 제공 패키지 (주로 UseCase에서 Input에 대한 Ouput를 성공(Right) 또는 실패(Left)로 반환 받아 사용 된다.)
   json_annotation: ^4.9.0             # 객체 JsonSerializable 패키지 (어노테이션으로 제공)
   get_it: ^8.0.3                      # DI(의존성 주입) 패키지

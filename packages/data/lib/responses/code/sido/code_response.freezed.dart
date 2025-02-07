@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'sido_response.dart';
+part of 'code_response.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,32 +14,32 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-SidoResponse _$SidoResponseFromJson(Map<String, dynamic> json) {
-  return _SidoResponse.fromJson(json);
+CodeResponse _$CodeResponseFromJson(Map<String, dynamic> json) {
+  return _CodeResponse.fromJson(json);
 }
 
 /// @nodoc
-mixin _$SidoResponse {
+mixin _$CodeResponse {
   String? get code => throw _privateConstructorUsedError;
   String? get codeDescriptor => throw _privateConstructorUsedError;
   String? get codeName => throw _privateConstructorUsedError;
   String? get upperCode => throw _privateConstructorUsedError;
 
-  /// Serializes this SidoResponse to a JSON map.
+  /// Serializes this CodeResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of SidoResponse
+  /// Create a copy of CodeResponse
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $SidoResponseCopyWith<SidoResponse> get copyWith =>
+  $CodeResponseCopyWith<CodeResponse> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SidoResponseCopyWith<$Res> {
-  factory $SidoResponseCopyWith(
-          SidoResponse value, $Res Function(SidoResponse) then) =
-      _$SidoResponseCopyWithImpl<$Res, SidoResponse>;
+abstract class $CodeResponseCopyWith<$Res> {
+  factory $CodeResponseCopyWith(
+          CodeResponse value, $Res Function(CodeResponse) then) =
+      _$CodeResponseCopyWithImpl<$Res, CodeResponse>;
   @useResult
   $Res call(
       {String? code,
@@ -49,16 +49,16 @@ abstract class $SidoResponseCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SidoResponseCopyWithImpl<$Res, $Val extends SidoResponse>
-    implements $SidoResponseCopyWith<$Res> {
-  _$SidoResponseCopyWithImpl(this._value, this._then);
+class _$CodeResponseCopyWithImpl<$Res, $Val extends CodeResponse>
+    implements $CodeResponseCopyWith<$Res> {
+  _$CodeResponseCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of SidoResponse
+  /// Create a copy of CodeResponse
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -90,11 +90,11 @@ class _$SidoResponseCopyWithImpl<$Res, $Val extends SidoResponse>
 }
 
 /// @nodoc
-abstract class _$$SidoResponseImplCopyWith<$Res>
-    implements $SidoResponseCopyWith<$Res> {
-  factory _$$SidoResponseImplCopyWith(
-          _$SidoResponseImpl value, $Res Function(_$SidoResponseImpl) then) =
-      __$$SidoResponseImplCopyWithImpl<$Res>;
+abstract class _$$CodeResponseImplCopyWith<$Res>
+    implements $CodeResponseCopyWith<$Res> {
+  factory _$$CodeResponseImplCopyWith(
+          _$CodeResponseImpl value, $Res Function(_$CodeResponseImpl) then) =
+      __$$CodeResponseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -105,14 +105,14 @@ abstract class _$$SidoResponseImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$SidoResponseImplCopyWithImpl<$Res>
-    extends _$SidoResponseCopyWithImpl<$Res, _$SidoResponseImpl>
-    implements _$$SidoResponseImplCopyWith<$Res> {
-  __$$SidoResponseImplCopyWithImpl(
-      _$SidoResponseImpl _value, $Res Function(_$SidoResponseImpl) _then)
+class __$$CodeResponseImplCopyWithImpl<$Res>
+    extends _$CodeResponseCopyWithImpl<$Res, _$CodeResponseImpl>
+    implements _$$CodeResponseImplCopyWith<$Res> {
+  __$$CodeResponseImplCopyWithImpl(
+      _$CodeResponseImpl _value, $Res Function(_$CodeResponseImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of SidoResponse
+  /// Create a copy of CodeResponse
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -122,7 +122,7 @@ class __$$SidoResponseImplCopyWithImpl<$Res>
     Object? codeName = freezed,
     Object? upperCode = freezed,
   }) {
-    return _then(_$SidoResponseImpl(
+    return _then(_$CodeResponseImpl(
       code: freezed == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
@@ -145,15 +145,15 @@ class __$$SidoResponseImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SidoResponseImpl implements _SidoResponse {
-  _$SidoResponseImpl(
+class _$CodeResponseImpl implements _CodeResponse {
+  _$CodeResponseImpl(
       {required this.code,
       required this.codeDescriptor,
       required this.codeName,
       required this.upperCode});
 
-  factory _$SidoResponseImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SidoResponseImplFromJson(json);
+  factory _$CodeResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CodeResponseImplFromJson(json);
 
   @override
   final String? code;
@@ -166,14 +166,14 @@ class _$SidoResponseImpl implements _SidoResponse {
 
   @override
   String toString() {
-    return 'SidoResponse(code: $code, codeDescriptor: $codeDescriptor, codeName: $codeName, upperCode: $upperCode)';
+    return 'CodeResponse(code: $code, codeDescriptor: $codeDescriptor, codeName: $codeName, upperCode: $upperCode)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SidoResponseImpl &&
+            other is _$CodeResponseImpl &&
             (identical(other.code, code) || other.code == code) &&
             (identical(other.codeDescriptor, codeDescriptor) ||
                 other.codeDescriptor == codeDescriptor) &&
@@ -188,31 +188,31 @@ class _$SidoResponseImpl implements _SidoResponse {
   int get hashCode =>
       Object.hash(runtimeType, code, codeDescriptor, codeName, upperCode);
 
-  /// Create a copy of SidoResponse
+  /// Create a copy of CodeResponse
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$SidoResponseImplCopyWith<_$SidoResponseImpl> get copyWith =>
-      __$$SidoResponseImplCopyWithImpl<_$SidoResponseImpl>(this, _$identity);
+  _$$CodeResponseImplCopyWith<_$CodeResponseImpl> get copyWith =>
+      __$$CodeResponseImplCopyWithImpl<_$CodeResponseImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SidoResponseImplToJson(
+    return _$$CodeResponseImplToJson(
       this,
     );
   }
 }
 
-abstract class _SidoResponse implements SidoResponse {
-  factory _SidoResponse(
+abstract class _CodeResponse implements CodeResponse {
+  factory _CodeResponse(
       {required final String? code,
       required final String? codeDescriptor,
       required final String? codeName,
-      required final String? upperCode}) = _$SidoResponseImpl;
+      required final String? upperCode}) = _$CodeResponseImpl;
 
-  factory _SidoResponse.fromJson(Map<String, dynamic> json) =
-      _$SidoResponseImpl.fromJson;
+  factory _CodeResponse.fromJson(Map<String, dynamic> json) =
+      _$CodeResponseImpl.fromJson;
 
   @override
   String? get code;
@@ -223,10 +223,10 @@ abstract class _SidoResponse implements SidoResponse {
   @override
   String? get upperCode;
 
-  /// Create a copy of SidoResponse
+  /// Create a copy of CodeResponse
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SidoResponseImplCopyWith<_$SidoResponseImpl> get copyWith =>
+  _$$CodeResponseImplCopyWith<_$CodeResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

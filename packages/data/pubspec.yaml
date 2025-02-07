@@ -11,6 +11,8 @@ dependencies:
     sdk: flutter
   domain:
     path: ../domain                   # 도메인 모듈 의존성 주입
+  util:
+    path: ../util                   # 유틸리티 모듈 의존성 주입
   chopper: ^8.0.3                     # 클라이언트 http 요청 패키지
   pretty_chopper_logger: ^1.2.1       # chopper 로그 패키지
   json_annotation: ^4.9.0             # 객체 JsonSerializable 패키지 (어노테이션으로 제공)

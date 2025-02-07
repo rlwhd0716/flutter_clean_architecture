@@ -15,11 +15,15 @@ class NetworkInterceptor implements Interceptor {
       Chain<BodyType> chain) async {
     final updatedParameters =
         Map<String, dynamic>.from(chain.request.parameters);
-    updatedParameters['api_key'] = '';
-    updatedParameters['language'] = 'ko-KR';
 
-    final updatedRequest =
-        chain.request.copyWith(parameters: updatedParameters);
+    // updatedParameters['api_key'] = '';
+    // updatedParameters['language'] = 'ko-KR';
+    final updatedHeaders = Map<String, String>.from(chain.request.headers);
+    updatedHeaders["accept"] = "*/*";
+    updatedHeaders["Content-Type"] = "application/json";
+    updatedHeaders["Connection"] = "close";
+
+    final updatedRequest = chain.request.copyWith(headers: updatedHeaders);
     final response = await chain.proceed(updatedRequest);
 
     return response;

@@ -17,7 +17,8 @@ class PostsBloc extends Bloc<PostsEvent, PostsState> {
   final PostListUseCase _postListUseCase;
   final SidoListUseCase _sidoListUseCase;
 
-  PostsBloc(this._postListUseCase, this._sidoListUseCase) : super(const LoadingState()) {
+  PostsBloc(this._postListUseCase, this._sidoListUseCase)
+      : super(const LoadingState()) {
     on<GetPostListEvent>(_getPostList);
     on<GetSidoListEvent>(_getSidoList);
   }
@@ -36,15 +37,16 @@ class PostsBloc extends Bloc<PostsEvent, PostsState> {
   }
 
   Future<void> _getSidoList(
-      GetSidoListEvent event,
-      Emitter<PostsState> emit,
+    GetSidoListEvent event,
+    Emitter<PostsState> emit,
   ) async {
     emit(const LoadingState());
 
     var uc = await _sidoListUseCase.execute(null);
+    print(uc);
     uc.fold(
-          (error) => emit(const FailureState()),
-          (result) => emit(GetSidoListState(result)),
+      (error) => emit(const FailureState()),
+      (result) => emit(GetSidoListState(result)),
     );
   }
 }

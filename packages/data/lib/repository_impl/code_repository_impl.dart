@@ -1,9 +1,11 @@
 import 'package:chopper/chopper.dart';
 import 'package:dartz/dartz.dart';
 import 'package:data/data.dart';
+import 'package:data/network/base/api_result.dart';
 import 'package:data/translator/translator.dart';
 import 'package:domain/domain.dart';
 import 'package:injectable/injectable.dart';
+import 'package:util/util.dart';
 
 /// Code Repository Implements
 /// Domain의 Repository를 상속하여 구현
@@ -20,15 +22,24 @@ class CodeRepositoryImpl implements CodeRepository {
   @override
   Future<Either<String, List<CodeModel>>> getSido() async {
     try {
-      var base = await _remote.getCodeSido();
-      final List<SidoResponse> responses = base.resultData ?? [];
+      var result = await _remote.getCodeSido();
+      // print("repoimpl ${base.toJson()}");
+
+      // final List<CodeResponse> responses =
+      //     (base.resultData as List<CodeResponse>);
       List<CodeModel> models = [];
 
-      for (var response in responses) {
-        models.add(response.toDomain());
+      if (result is Success<List<CodeResponse>>) {
+        for (var response in result.data) {
+          models.add(response.toDomain());
+        }
+        return Right(models);
+      } else {
+        final errMsg =
+            result.asOrNull<Failed>()?.errors.firstOrNull()?.message ??
+                "API Response Error";
+        return Left(errMsg);
       }
-
-      return Right(models);
     } on ChopperException catch (e) {
       if (e.response != null) {
         if (e.response!.body != null) {

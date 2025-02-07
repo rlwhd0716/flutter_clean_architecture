@@ -10,9 +10,13 @@ extension PostsResponseTranslator on PostsResponse {
   }
 }
 
-
-extension CodeResponseTranslator on SidoResponse {
+extension CodeResponseTranslator on CodeResponse {
   CodeModel toDomain() {
-    return CodeModel(code,codeDescriptor,codeName,upperCode,);
+    return CodeModel(
+      code,
+      codeDescriptor,
+      codeName,
+      upperCode,
+    );
   }
 }

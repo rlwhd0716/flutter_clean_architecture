@@ -34,6 +34,8 @@ dependencies:
     path: packages/data                 # 데이터 모듈 의존성 주입
   domain:
     path: packages/domain               # 도메인 모듈 의존성 주입
+  util:
+    path: packages/util                 # 유틸리티 모듈 의존성 주입
 
   chopper: ^8.0.3                       # 클라이언트 http 요청 패키지
   get_it: ^8.0.3                        # DI(의존성 주입) 패키지

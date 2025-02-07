@@ -1,20 +1,20 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'sido_response.dart';
+part of 'code_response.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SidoResponseImpl _$$SidoResponseImplFromJson(Map<String, dynamic> json) =>
-    _$SidoResponseImpl(
+_$CodeResponseImpl _$$CodeResponseImplFromJson(Map<String, dynamic> json) =>
+    _$CodeResponseImpl(
       code: json['code'] as String?,
       codeDescriptor: json['codeDescriptor'] as String?,
       codeName: json['codeName'] as String?,
       upperCode: json['upperCode'] as String?,
     );
 
-Map<String, dynamic> _$$SidoResponseImplToJson(_$SidoResponseImpl instance) =>
+Map<String, dynamic> _$$CodeResponseImplToJson(_$CodeResponseImpl instance) =>
     <String, dynamic>{
       'code': instance.code,
       'codeDescriptor': instance.codeDescriptor,

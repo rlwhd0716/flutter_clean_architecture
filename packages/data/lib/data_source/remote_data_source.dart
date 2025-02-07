@@ -1,3 +1,5 @@
+import 'package:data/network/base/api_result.dart';
+
 import '../responses/responses.dart';
 
 /// Restful API
@@ -5,5 +7,5 @@ import '../responses/responses.dart';
 /// Created On 2025-01-03
 abstract class RemoteDataSource {
   Future<List<PostsResponse>> getPosts();
-  Future<BaseResponse<List<SidoResponse>>> getCodeSido();
+  Future<ApiResult<List<CodeResponse>>> getCodeSido();
 }
