@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.6.0
+  sdk: ^3.6.2
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -47,7 +47,7 @@ dependencies:
   freezed_annotation: ^2.4.4            # 객체 Freezed 어노테이션
   equatable: ^2.0.7                     # 객체관리 패키지
 
-  shared_preferences: ^2.3.4            # shared preferences 패키지
+  shared_preferences: ^2.5.2            # shared preferences 패키지
   formz: ^0.8.0                         # 입력 폼(TextField 등)에 사용자 입력 값에 대한 유효성 검사 제공 패키지
   # flutter_secure_storage: ^9.0.0      # secure storage 패키지 (API의 인증 Access token, refresh token 등 보관 용도)
   # flutter_speed_dial: ^6.2.0          # 햄버거 버튼 터치시 서브 메뉴 표시 처리 패키지
