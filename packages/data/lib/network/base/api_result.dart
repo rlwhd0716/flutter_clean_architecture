@@ -1,36 +1,50 @@
 import 'package:chopper/chopper.dart';
+import 'package:data/data.dart';
 
 import 'api_error.dart';
 
 abstract class ApiResult<T> {
   static const String _jsonNodeData = "data";
+  static const String successCode = "100";
   static const String _jsonNodeErrors = "errors";
 
-  static ApiResult<T> fromResponse<T>(
-      Response response, T Function(Map<String, dynamic>) mapper) {
+  static ApiResult<T> fromResponseObject<T>(
+    Response<BaseResponse> response,
+    T Function(Map<String, dynamic>) mapper,
+  ) {
     final responseData = response.body;
 
-    if (responseData[_jsonNodeErrors] != null) {
+    if (responseData?.resultCode == successCode) {
+      final data = responseData?.resultData;
+      return Success(mapper(data!.first));
+    } else if (responseData?.resultCode != successCode) {
       return ServerError.fromResponse(response);
-    } else if (responseData[_jsonNodeData] != null) {
-      return Success(mapper(response.body[_jsonNodeData]));
     } else {
       return InternalError();
     }
   }
 
-  static ApiResult<List<T>> fromResponseList<T>(
-      Response response, T Function(Map<String, dynamic>) mapper) {
+  static ApiResult<List<T>> fromResponse<T>(
+    Response<BaseResponse> response,
+    T Function(Map<String, dynamic>) mapper,
+  ) {
     final responseData = response.body;
 
-    if (responseData[_jsonNodeErrors] != null) {
-      return ServerError.fromResponse(response);
-    } else if (responseData[_jsonNodeData] != null) {
+    if (responseData?.resultCode == successCode) {
       final List<T> list = [];
-      for (var result in response.body[_jsonNodeData]) {
-        list.add(mapper(result));
+
+      if (responseData?.resultData is List<dynamic>) {
+        final datas = responseData?.resultData;
+        for (var data in datas) {
+          list.add(mapper(data));
+        }
+      } else {
+        list.add(mapper(responseData?.resultData));
       }
+
       return Success(list);
+    } else if (responseData?.resultCode != successCode) {
+      return ServerError.fromResponse(response);
     } else {
       return InternalError();
     }

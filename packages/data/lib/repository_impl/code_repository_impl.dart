@@ -23,10 +23,6 @@ class CodeRepositoryImpl implements CodeRepository {
   Future<Either<String, List<CodeModel>>> getSido() async {
     try {
       var result = await _remote.getCodeSido();
-      // print("repoimpl ${base.toJson()}");
-
-      // final List<CodeResponse> responses =
-      //     (base.resultData as List<CodeResponse>);
       List<CodeModel> models = [];
 
       if (result is Success<List<CodeResponse>>) {

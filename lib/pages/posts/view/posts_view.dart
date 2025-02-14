@@ -30,7 +30,7 @@ class _PostsViewState extends State<PostsView> {
                 child: CircularProgressIndicator(
                     color: Color.fromARGB(255, 252, 113, 49)));
           case PostsStatus.success:
-            return const Text('loading data Success!',
+            return Text('${state.codes?.first.codeName}',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold));
           case PostsStatus.failure:
             return const Text('Error loading data',

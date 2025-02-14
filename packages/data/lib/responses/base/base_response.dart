@@ -10,7 +10,7 @@ class BaseResponse with _$BaseResponse {
     required String resultMsg,
     required int resultSize,
     required int totalSize,
-    required List<dynamic>? resultData,
+    required dynamic resultData,
   }) = _BaseResponse;
 
   factory BaseResponse.fromJson(Map<String, dynamic> json) =>

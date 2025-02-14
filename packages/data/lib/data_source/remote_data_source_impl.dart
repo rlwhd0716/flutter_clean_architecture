@@ -22,31 +22,15 @@ class RemoteDataSourceImpl implements RemoteDataSource {
     return response.body ?? [];
   }
 
-  @override
-  Future<ApiResult<List<CodeResponse>>> getCodeSido() async {
-    // List<CodeResponse> list = [];
-    final response = await _apiService.getCodeSido();
-    // if (response.body != null) {
-    //   for (var result in response.body!.resultData!) {
-    //     var code = CodeResponse.fromJson(result);
-    //     list.add(code);
-    //   }
-    // }
-
-    return ApiResult.fromResponseList(response, CodeResponse.fromJson);
-    // return response.body!.copyWith(resultData: list);
-  }
-
   /// BaseResponse 를 사용하는 경우 예시
   /// 하위 모델 또한 컨버팅이 필요하기 때문에, 여기에서 fromJson을 실행함.
-  /* Future<List<UserData>> getUser(String id) async {
-     List<UserData> list = [];
-     final response = await _apiService.getUsers(id);
-     if (response.body != null) {
-       for (var result in response.body!.resultData!) {
-         list.add(UserData.fromJson(result));
-       }
-     }
-     return list;
-   } */
+  /// ApiResult 공통 함수를 통해 기본적으로 List 형태의 데이터를 리턴함.
+  @override
+  Future<ApiResult<List<CodeResponse>>> getCodeSido() async {
+    final response = await _apiService.getCodeSido();
+    return ApiResult.fromResponse<CodeResponse>(
+      response,
+      CodeResponse.fromJson,
+    );
+  }
 }
