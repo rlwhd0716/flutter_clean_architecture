@@ -13,9 +13,7 @@ class ResponseConverter {
     Response<dynamic> response,
   ) async {
     final jsonString = json.decode(response.body.toString());
-    // print("body - ${jsonString}");
     final base = BaseResponse.fromJson(jsonString);
-    // print("base - ${base}");
 
     return response.copyWith(body: base);
   }

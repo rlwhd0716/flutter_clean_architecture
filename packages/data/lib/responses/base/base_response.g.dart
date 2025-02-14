@@ -12,7 +12,7 @@ _$BaseResponseImpl _$$BaseResponseImplFromJson(Map<String, dynamic> json) =>
       resultMsg: json['resultMsg'] as String,
       resultSize: (json['resultSize'] as num).toInt(),
       totalSize: (json['totalSize'] as num).toInt(),
-      resultData: json['resultData'] as List<dynamic>?,
+      resultData: json['resultData'],
     );
 
 Map<String, dynamic> _$$BaseResponseImplToJson(_$BaseResponseImpl instance) =>

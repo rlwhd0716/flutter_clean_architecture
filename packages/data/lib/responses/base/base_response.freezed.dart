@@ -24,7 +24,7 @@ mixin _$BaseResponse {
   String get resultMsg => throw _privateConstructorUsedError;
   int get resultSize => throw _privateConstructorUsedError;
   int get totalSize => throw _privateConstructorUsedError;
-  List<dynamic>? get resultData => throw _privateConstructorUsedError;
+  dynamic get resultData => throw _privateConstructorUsedError;
 
   /// Serializes this BaseResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -47,7 +47,7 @@ abstract class $BaseResponseCopyWith<$Res> {
       String resultMsg,
       int resultSize,
       int totalSize,
-      List<dynamic>? resultData});
+      dynamic resultData});
 }
 
 /// @nodoc
@@ -91,7 +91,7 @@ class _$BaseResponseCopyWithImpl<$Res, $Val extends BaseResponse>
       resultData: freezed == resultData
           ? _value.resultData
           : resultData // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>?,
+              as dynamic,
     ) as $Val);
   }
 }
@@ -109,7 +109,7 @@ abstract class _$$BaseResponseImplCopyWith<$Res>
       String resultMsg,
       int resultSize,
       int totalSize,
-      List<dynamic>? resultData});
+      dynamic resultData});
 }
 
 /// @nodoc
@@ -149,9 +149,9 @@ class __$$BaseResponseImplCopyWithImpl<$Res>
           : totalSize // ignore: cast_nullable_to_non_nullable
               as int,
       resultData: freezed == resultData
-          ? _value._resultData
+          ? _value.resultData
           : resultData // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>?,
+              as dynamic,
     ));
   }
 }
@@ -164,8 +164,7 @@ class _$BaseResponseImpl implements _BaseResponse {
       required this.resultMsg,
       required this.resultSize,
       required this.totalSize,
-      required final List<dynamic>? resultData})
-      : _resultData = resultData;
+      required this.resultData});
 
   factory _$BaseResponseImpl.fromJson(Map<String, dynamic> json) =>
       _$$BaseResponseImplFromJson(json);
@@ -178,15 +177,8 @@ class _$BaseResponseImpl implements _BaseResponse {
   final int resultSize;
   @override
   final int totalSize;
-  final List<dynamic>? _resultData;
   @override
-  List<dynamic>? get resultData {
-    final value = _resultData;
-    if (value == null) return null;
-    if (_resultData is EqualUnmodifiableListView) return _resultData;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
+  final dynamic resultData;
 
   @override
   String toString() {
@@ -207,13 +199,13 @@ class _$BaseResponseImpl implements _BaseResponse {
             (identical(other.totalSize, totalSize) ||
                 other.totalSize == totalSize) &&
             const DeepCollectionEquality()
-                .equals(other._resultData, _resultData));
+                .equals(other.resultData, resultData));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, resultCode, resultMsg,
-      resultSize, totalSize, const DeepCollectionEquality().hash(_resultData));
+      resultSize, totalSize, const DeepCollectionEquality().hash(resultData));
 
   /// Create a copy of BaseResponse
   /// with the given fields replaced by the non-null parameter values.
@@ -237,7 +229,7 @@ abstract class _BaseResponse implements BaseResponse {
       required final String resultMsg,
       required final int resultSize,
       required final int totalSize,
-      required final List<dynamic>? resultData}) = _$BaseResponseImpl;
+      required final dynamic resultData}) = _$BaseResponseImpl;
 
   factory _BaseResponse.fromJson(Map<String, dynamic> json) =
       _$BaseResponseImpl.fromJson;
@@ -251,7 +243,7 @@ abstract class _BaseResponse implements BaseResponse {
   @override
   int get totalSize;
   @override
-  List<dynamic>? get resultData;
+  dynamic get resultData;
 
   /// Create a copy of BaseResponse
   /// with the given fields replaced by the non-null parameter values.
