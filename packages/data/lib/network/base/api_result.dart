@@ -4,9 +4,7 @@ import 'package:data/data.dart';
 import 'api_error.dart';
 
 abstract class ApiResult<T> {
-  static const String _jsonNodeData = "data";
   static const String successCode = "100";
-  static const String _jsonNodeErrors = "errors";
 
   static ApiResult<T> fromResponseObject<T>(
     Response<BaseResponse> response,
