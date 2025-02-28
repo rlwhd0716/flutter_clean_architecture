@@ -1,3 +1,6 @@
+import 'dart:io';
+import 'package:http/io_client.dart' as http;
+
 import 'package:chopper/chopper.dart';
 import 'package:data/network/network_interceptor.dart';
 
@@ -31,9 +34,9 @@ class ApiProvider implements ApiProviderFactory {
       interceptors: [
         NetworkInterceptor(),
       ],
-      // client: http.IOClient(
-      //   HttpClient()..connectionTimeout = Duration(milliseconds: 50),
-      // ),
+      client: http.IOClient(
+        HttpClient()..connectionTimeout = const Duration(seconds: 30),
+      ),
       converter: JsonConverter(),
     );
     chopper = c;
