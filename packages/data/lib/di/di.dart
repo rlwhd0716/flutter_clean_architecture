@@ -10,6 +10,7 @@
 
 import 'package:chopper/chopper.dart';
 import 'package:data/data.dart';
+import 'package:data/database/app_database.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 
@@ -35,7 +36,13 @@ Future<GetIt> $initGetIt(
 
   gh.factory<ApiService>(() => ApiService.create(getIt<ChopperClient>()));
 
-  // gh.factory<RemoteDataSource>(() => RemoteDataSourceImpl(getIt<ApiService>()));
+  // getIt.registerLazySingleton<AppDatabase>(() => AppDatabase());
 
   return config.$initGetIt(getIt);
+}
+
+@module
+abstract class RegisterModule {
+  @lazySingleton
+  AppDatabase get appDatabase => AppDatabase();
 }

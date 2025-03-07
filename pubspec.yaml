@@ -49,6 +49,7 @@ dependencies:
 
   shared_preferences: ^2.5.2            # shared preferences 패키지
   formz: ^0.8.0                         # 입력 폼(TextField 등)에 사용자 입력 값에 대한 유효성 검사 제공 패키지
+
   # flutter_secure_storage: ^9.0.0      # secure storage 패키지 (API의 인증 Access token, refresh token 등 보관 용도)
   # flutter_speed_dial: ^6.2.0          # 햄버거 버튼 터치시 서브 메뉴 표시 처리 패키지
   # bottom_sheet: ^4.0.0                # 하단에 위젯 표시 처리 패키지
@@ -66,7 +67,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  build_runner: ^2.4.14                 # generator를 사용하기 위한 Builder
+  build_runner: ^2.4.15                 # generator를 사용하기 위한 Builder
   injectable_generator: ^2.6.2          # 의존성 주입 코드 생성기
   json_serializable: ^6.9.0             # 객체 JsonSerializable 패키지 (Code Generator)
   freezed: ^2.5.7                       # 객체 비교 패키지 (주로 bloc state에서 사용되어 bloc 빌드 최적화시 상태 비교에 사용)

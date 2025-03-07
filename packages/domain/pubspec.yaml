@@ -15,12 +15,13 @@ dependencies:
   json_annotation: ^4.9.0             # 객체 JsonSerializable 패키지 (어노테이션으로 제공)
   get_it: ^8.0.3                      # DI(의존성 주입) 패키지
   injectable: ^2.5.0                  # get_it DI code generator 패키지
+  drift: ^2.25.1                        # 로컬 데이터 베이스
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
-  build_runner: ^2.4.14               # generator를 사용하기 위한 Builder
+  build_runner: ^2.4.15               # generator를 사용하기 위한 Builder
   json_serializable: ^6.9.0           # 객체 JsonSerializable 패키지 (Code Generator)
   injectable_generator: ^2.6.2        # 의존성 주입 코드 생성기
 

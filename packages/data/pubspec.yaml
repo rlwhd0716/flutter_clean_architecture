@@ -19,12 +19,18 @@ dependencies:
   freezed_annotation: ^2.4.4          # 객체 Freezed 어노테이션
   get_it: ^8.0.3                      # DI(의존성 주입) 패키지
   injectable: ^2.5.0                  # get_it DI code generator 패키지
+  drift: ^2.25.1                        # 로컬 데이터 베이스
+  drift_flutter: ^0.2.4                        # 로컬 데이터 베이스
+#  sqlite3_flutter_libs: ^0.5.31
+  path_provider: ^2.1.5
+  path: ^1.9.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
-  build_runner: ^2.4.14                # generator를 사용하기 위한 Builder
+  drift_dev: ^2.25.2                        # 로컬 데이터 베이스
+  build_runner: ^2.4.15                # generator를 사용하기 위한 Builder
   chopper_generator: ^8.0.3            # chopper 클라이언트 생성기
   json_serializable: ^6.9.0            # 객체 JsonSerializable 패키지 (Code Generator)
   freezed: ^2.5.7                      # 객체 비교 패키지 (주로 bloc state에서 사용되어 bloc 빌드 최적화시 상태 비교에 사용)
